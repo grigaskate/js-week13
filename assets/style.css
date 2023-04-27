@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+.root {
+  background-image: url("image/denise-jans-NaNxtWzYzr0-unsplash1.jpg");
+  background-size: cover;
+  padding-top: 0;
+}
+.card__item {
+  border-top: 1px solid black;
+}
