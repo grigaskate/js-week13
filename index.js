@@ -53,7 +53,7 @@ const createPruducerCard = (obj) => {
   const block = document.createElement("div");
   block.className = "card__item";
   const name = document.createElement("p");
-  name.className = "card__name";
+  name.className = "card__name heading";
   name.textContent = obj.name;
   const career = document.createElement("p");
   career.className = "card__career";
@@ -62,6 +62,7 @@ const createPruducerCard = (obj) => {
   films.className = "card__films";
   films.href = obj.films;
   films.textContent = "Фильмография";
+
   const topRatedFilm = document.createElement("p");
   topRatedFilm.className = "card__topRatedFilm";
   topRatedFilm.textContent = obj.top_rated_film;
@@ -69,7 +70,6 @@ const createPruducerCard = (obj) => {
   block.append(name);
   block.append(career);
   block.append(films);
-  block.append(topRatedFilm);
 
   return block;
 };
@@ -85,4 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
   producers.forEach((element) => {
     addProducerCard(element, cardList);
   });
+});
+
+// Создаем новый массив с названиями лучших фильмов режиссеров
+const topFilmsList = producers.map((obj) => {
+  return obj.top_rated_film;
+});
+
+//Выводим лучшие фильмы режиссеров
+document.addEventListener("DOMContentLoaded", () => {
+  topRatedFilmList.textContent = topFilmsList.join(", ");
 });
