@@ -49,32 +49,39 @@ const producers = [
 const cardList = document.querySelector(".card__list");
 const topRatedFilmList = document.querySelector(".top_rated_film");
 
+//Функция, которая создает разметку и помещает туда элементы из массива producers
 const createPruducerCard = (obj) => {
+  //создаем контейнер для информации о режиссерaх
   const block = document.createElement("div");
   block.className = "card__item";
+  //создаем контейнер для имени режиссера
   const name = document.createElement("p");
   name.className = "card__name heading";
-  name.textContent = obj.name;
+  name.textContent = obj.name; //берем значение из массива producers строки name
+  //создаем контейнер для информации о карьере режиссера
   const career = document.createElement("p");
   career.className = "card__career";
-  career.textContent = obj.career;
+  career.textContent = obj.career; //берем значение из массива producers строки career
+  //добавляем гиперссылку на фильмографию
   const films = document.createElement("a");
   films.className = "card__films";
-  films.href = obj.films;
+  films.href = obj.films; //берем значение из массива producers строки films
   films.textContent = "Фильмография";
-
+  //создаем контейнер для информации о лучших фильмах режиссера
   const topRatedFilm = document.createElement("p");
   topRatedFilm.className = "card__topRatedFilm";
-  topRatedFilm.textContent = obj.top_rated_film;
+  topRatedFilm.textContent = obj.top_rated_film; //берем значение из массива producers строки top_rated_film
 
+  //вставляем созданные выше элементы name, career, films в элемент block
   block.append(name);
   block.append(career);
   block.append(films);
 
+  //возвращаем готовый блок с разметкой и заполненный элементами из массива
   return block;
 };
 
-// Функция, которая будет добавлять новые блоки к уже созданным
+//Функция, которая будет добавлять новые блоки к уже созданным
 const addProducerCard = (objItem, container) => {
   const item = createPruducerCard(objItem);
   container.append(item);
